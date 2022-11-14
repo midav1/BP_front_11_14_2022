@@ -13,7 +13,7 @@ import Login from './comps_user/login';
 import SignUp from './comps_user/signUp';
 import Home from './comps_user/home';
 import Header_mishtamesh from './comps_mishtamesh/header_mishtamesh';
-import CheckAdminComp from './comps_admin/checkAdminComp';
+
 
 function App() {
   return (
