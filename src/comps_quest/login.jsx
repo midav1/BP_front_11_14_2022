@@ -21,21 +21,10 @@ export default function Login() {
       let {data} = await doApiMethod(url,"POST",bodyData);
         // לשמור את הטוקן
         localStorage.setItem(TOKEN_NAME,data.token);
-
-        if (data.userrole == "admin") {
-          nav("/admin");
-        }
-        else{
-
-             // לשגר לעמוד של רשימת המשתמשים
-        nav("/user")
-        // console.log(data.userrole)
-        // alert(data.userName+" Welcome to WeFoods!")
-
-
-        }
-        
-     
+        // לשגר לעמוד של רשימת המשתמשים
+        nav("/")
+       console.log(data)
+      alert(data.userName+" Welcome to WeFoods!")
     }
     
     catch (err) {
@@ -54,7 +43,7 @@ export default function Login() {
 
   return (
     <div className='container'>
-      <h1 className='text-center'>Log in</h1>
+      <h1 className='text-center'>Log in </h1>
       <form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow mx-auto'>
         <label>Email:</label>
         <input {...emailRef} type="text" className='form-control' />

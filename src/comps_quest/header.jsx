@@ -1,16 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Header_mishtamesh = () => {
+const Header = () => {
     return (
         <div >
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
-                    <Link className="navbar-brand" to={"#"}>Header_mishtamesh</Link>
+                    <Link className="navbar-brand" to={"#"}>User</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    {/* <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <Link className="nav-link active" to={"/"}>Home</Link>
@@ -23,11 +23,11 @@ const Header_mishtamesh = () => {
                             </li>
 
                         </ul>
-                    </div> */}
+                    </div>
                 </div>
             </nav>
         </div>
     )
 }
 
-export default Header_mishtamesh
+export default Header

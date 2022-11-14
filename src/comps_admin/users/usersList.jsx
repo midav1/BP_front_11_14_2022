@@ -14,7 +14,7 @@ export default function UsersList() {
     let url = API_URL+"/users/usersList";
     try{
       let resp = await doApiGet(url);
-      console.log("sada");
+      console.log(resp.data);
       setAr(resp.data);
     }
     catch(err){
@@ -47,7 +47,6 @@ export default function UsersList() {
           {ar.map((item,i) => {
             return(
               <UserItem key={item._id} doApi={doApi} index={i} item={item}/>
-              
             )
           })}
         </tbody>

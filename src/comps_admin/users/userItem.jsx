@@ -19,7 +19,6 @@ export default function UserItem(props) {
       let resp = await doApiMethod(url,"PATCH",bodyData)
       console.log(resp.data)
       if(resp.data){
-        console.log("sd")
          props.doApi()
       }
     }
