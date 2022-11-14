@@ -39,6 +39,7 @@ export default function MyInfo() {
             <th>Location</th>
             <th>Nickname</th>
             <th>My profile photo</th>
+            <th>Edit Profile</th>
           </tr>
         </thead>
         <tbody>
@@ -51,11 +52,11 @@ export default function MyInfo() {
       <td>{info.date_created.slice(0,10)}</td>
       <td>{info.rank}</td>
       <td>{info.role}</td>
-      <td>{info.active}</td>
+      <td>{String(info.active)}</td>
       <td>{info.location}</td>
       <td>{info.nickname}</td>
       <td><img src={info.img_url} height="40" alt="pic" /></td>
-        <Link className='btn btn-info me-2' to={"/user/myinfo/edit"} >Edit</Link>
+      <td> <Link className='btn btn-info me-2' to={"/user/myinfo/edit"} >Edit</Link></td>
     </tr>
         </tbody>
       </table>
