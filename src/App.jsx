@@ -8,38 +8,40 @@ import CategoriesList from './comps_admin/categories/categoriesList';
 import AddCategoryForm from './comps_admin/categories/addCategoryForm';
 import EditCategory from './comps_admin/categories/editCategory';
 import FoodsList from './comps_admin/foods/foodsList';
-import Header from './comps_user/header';
-import Login from './comps_user/login';
-import SignUp from './comps_user/signUp';
-import Home from './comps_user/home';
-import Header_mishtamesh from './comps_mishtamesh/header_mishtamesh';
-
+import Header from './comps_quest/header';
+import Login from './comps_quest/login';
+import SignUp from './comps_quest/signUp';
+import Home from './comps_quest/home';
+import HeaderUser from './comps_user/headerUser';
+import ItemList from './comps_user/myitems/itemList';
+import MyInfo from './comps_user/myinfo/myInfo';
+import MyInfoEdit from './comps_user/myinfo/myInfoEdit';
 
 function App() {
   return (
     <BrowserRouter>
-      
+      {/* CLIENT  */}
       <Routes>
-        <Route path="/admin/*" element={<HeaderAdmin />} />
-        <Route path="/user/*" element={<Header_mishtamesh />} />
-        <Route path="/*" element={<Header />} />
+        <Route path="/admin/" element={<HeaderAdmin />} />
+        <Route path="/user/" element={<HeaderUser />} />
+        <Route path="/" element={<Header />} />
       </Routes>
 
-    
+    {/* GUEST ROUTES */}
       <Routes>
-        {/* GUEST ROUTES */}
         <Route index element={<Home/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<SignUp/>}/>
       </Routes>
 
-      <Routes>
-        {/* USER ROUTES */}
-        <Route path='/user' element={<Header_mishtamesh />} />
+    {/* CLIENT ROUTES */}
+    <Routes>
+        <Route index element={<Home/>} />
+        <Route path='/user/myinfo' element={<MyInfo/>} />
+        <Route path='/user/myinfo/edit' element={<MyInfoEdit/>}/>
+        <Route path='/user/myitems' element={<ItemList/>}/>
       </Routes>
-
       <Routes>
-        
         {/* ADMIN ROUTES */}
         <Route path="/admin" element={<LoginAdmin />} />
         <Route path="/admin/users" element={<UsersList />} />

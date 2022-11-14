@@ -3,7 +3,6 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
 import { doApiMethod, API_URL, TOKEN_NAME } from '../services/apiService';
-import CheckAdminComp from './checkAdminComp';
 
 
 export default function LoginAdmin() {
