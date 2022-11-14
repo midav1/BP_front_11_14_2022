@@ -9,7 +9,6 @@ export default function MyInfoEdit() {
   const [info, setInfo] = useState({})
   const { register, handleSubmit, formState: { errors } } = useForm();
   const nav = useNavigate();
-
 //   בקשה בהתחלה שתשלוף את כל המידע של הטופס
   useEffect(() => {
     doApiInit();
@@ -62,7 +61,30 @@ export default function MyInfoEdit() {
         <label>Name:</label>
         <input defaultValue={info.name} {...register("name", { required: true, minLength: 2 })} type="text" className='form-control' />
         {errors.name && <div className='text-danger'>Enter valid name (min 2 chars) </div>}
+        <label >Email:</label>
+        <input defaultValue={info.email} {...register("email", { required: true, minLength: 2 })} type="text" className='form-control' />
+        <label>Phone:</label>
+        <input defaultValue={info.phone} {...register("phone", { required: true, minLength: 2 })} type="text" className='form-control' />
+        {errors.phone && <div className='text-danger'>Enter valid phone (min 2 chars) </div>}
         <div className='mt-3'>
+        <label>Birthday:</label>
+        {/* const toDay= new Date(info.birth_date).toISOString().substring(0, 10);
+  console.log(toDay) */}
+
+        {/* <input input defaultValue={info.birth_date}{...register('birth_date', { required: true })} className='form-control mt-2' placeholder='birth date...' type="date" />
+        {errors.birth_date && <small className='text-danger d-block'>Enter valid birth date </small>}
+        <label>Info:</label> */}
+        <input input defaultValue={info.info}{...register('info', { required: true })} className='form-control'  type="text" />
+        {errors.info && <small className='text-danger d-block'>Enter valid info</small>}
+        <label>Location:</label>
+        <input input defaultValue={info.location}{...register('location', { required: true })} className='form-control'  type="text" />
+        {errors.location && <small className='text-danger d-block'>Enter location </small>}
+        <label>Nickname:</label>
+        <input input defaultValue={info.nickname}{...register('nickname', { required: true })} className='form-control'  type="text" />
+        {errors.nickname && <small className='text-danger d-block'>Enter nickname </small>}
+        <label>My profile phote:</label>
+        <input input defaultValue={info.img_url}{...register('img_url', { required: true })} className='form-control'  type="text" />
+        {errors.img_url && <small className='text-danger d-block'>upload new photo </small>}
           <button className='btn btn-success me-5'>Update My info</button>
           <Link className='btn btn-danger' to="/user/myinfo">Back</Link>
         </div>
