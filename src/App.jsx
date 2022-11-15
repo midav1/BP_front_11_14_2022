@@ -1,6 +1,6 @@
 
 import './App.css';
-import {BrowserRouter,Routes,Route} from "react-router-dom"
+import {BrowserRouter,Routes,Route,Switch} from "react-router-dom"
 import HeaderAdmin from './comps_admin/headerAdmin';
 import LoginAdmin from './comps_admin/loginAdmin';
 import UsersList from './comps_admin/users/usersList';
@@ -18,7 +18,7 @@ import MyInfo from './comps_user/myinfo/myInfo';
 import MyInfoEdit from './comps_user/myinfo/myInfoEdit';
 
 function App() {
-  return (
+  return (   
     <BrowserRouter>
       {/* CLIENT  */}
       <Routes>
@@ -26,23 +26,22 @@ function App() {
         <Route path="/user/" element={<HeaderUser />} />
         <Route path="/" element={<Header />} />
       </Routes>
-
     {/* GUEST ROUTES */}
       <Routes>
         <Route index element={<Home/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<SignUp/>}/>
       </Routes>
-
     {/* CLIENT ROUTES */}
     <Routes>
         <Route index element={<Home/>} />
+        <Route path='/user/' element={<MyInfo/>} />
         <Route path='/user/myinfo' element={<MyInfo/>} />
         <Route path='/user/myinfo/edit' element={<MyInfoEdit/>}/>
         <Route path='/user/myitems' element={<ItemList/>}/>
       </Routes>
       <Routes>
-        {/* ADMIN ROUTES */}
+        {/* ADMIN ROUTES */}      
         <Route path="/admin" element={<LoginAdmin />} />
         <Route path="/admin/users" element={<UsersList />} />
         <Route path="/admin/categories" element={<CategoriesList />} />
@@ -50,7 +49,6 @@ function App() {
         <Route path="/admin/editCategory/:id" element={<EditCategory />} />
         <Route path="/admin/foods" element={<FoodsList />} />
       </Routes>
-
     </BrowserRouter>
   );
 }
