@@ -65,9 +65,9 @@ export default function EditCategory() {
         <input defaultValue={info.name} {...register("name", { required: true, minLength: 2 })} type="text" className='form-control' />
         {errors.name && <div className='text-danger'>Enter valid name (min 2 chars) </div>}
 
-        <label hidden>Url name:</label>
+        <label >Url name:</label>
         {/* disabled - לא מאפשר לגעת באינפוט */}
-        <input defaultValue={info.url_name} {...register("url_name", { required: true, minLength: 2 })} type="text" hidden className='form-control' />
+        <input defaultValue={info.url_name}  type="text" hidden className='form-control' readonly="readonly" disabled={true} />
         {errors.url_name && <div className='text-danger'>Enter valid url name (min 2 chars) </div>}
         <label>Info:</label>
         <textarea defaultValue={info.info} {...register("info", { required: true, minLength: 2 })} className='form-control' rows="5"></textarea>
