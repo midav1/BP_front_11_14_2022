@@ -1,14 +1,22 @@
 import { Outlet, Navigate } from 'react-router-dom'
-import { TOKEN_NAME, ROLE } from '../services/apiService';
-const token=localStorage.getItem(TOKEN_NAME)
-const role=localStorage.getItem(ROLE)
-console.log(token)
-console.log(role)
-const AdminRoutes = () => {   
+import { useEffect, useState } from 'react'
+import { TOKEN_NAME } from '../services/apiService';
+
+import { checkIfAdmin } from './../services/rolesService'
+const token = localStorage.getItem(TOKEN_NAME)
+
+const AdminRoutes = () => {  
+    const [isAdmin, setAdmin] =useState(false)
+    
+    useEffect(() => {
+        checkIfAdmin().then(result => {
+            setAdmin(result)
+        })
+    }, [])
 
 
     return(
-         (token && role=="admin") ? <Outlet/> : <Navigate to="/login"/>
+         (token && isAdmin) ? <Outlet/> : <Navigate to="/login"/>
     )
 }
 
