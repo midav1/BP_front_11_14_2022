@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import { API_URL, doApiGet, doApiMethod } from '../../services/apiService';
+import CheckUserComp from '../checkUserComp';
 
 
 
@@ -65,6 +66,7 @@ export default function MyInfoEdit() {
   return (
 
     <div className='container'>
+       <CheckUserComp/>
       <h2>Edit My info</h2>
       {info.name?<form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow'>
         <label>Name:</label>

@@ -1,10 +1,11 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
-import { doApiMethod, API_URL, TOKEN_NAME } from '../services/apiService';
+import { doApiMethod, API_URL, TOKEN_NAME, ROLE } from '../services/apiService';
+import { observer } from "mobx-react";
+import store from '../store/UserStore';
 
-
-export default function Login() {
+ export default function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const nav = useNavigate();
@@ -16,11 +17,13 @@ export default function Login() {
   }
 
   const doApiForm = async (bodyData) => {
+  
     let url = API_URL + "/users/login"
     try {
       let {data} = await doApiMethod(url,"POST",bodyData);
         // לשמור את הטוקן
         localStorage.setItem(TOKEN_NAME,data.token);
+        localStorage.setItem(ROLE,data.userrole);
         // לשגר לעמוד של רשימת המשתמשים
         nav("/")
        console.log(data)
@@ -31,6 +34,7 @@ export default function Login() {
       console.log(err.response);
       alert("User or password worng, or service down");
     }
+    return doApiForm
   }
 
 

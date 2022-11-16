@@ -1,6 +1,7 @@
 import React,{ useState , useEffect }  from 'react'
 import { Link } from 'react-router-dom';
 import { API_URL, doApiGet, doApiMethod} from '../../services/apiService';
+import CheckUserComp from '../checkUserComp';
 
 export default function MyInfo() {
   const [info,setMyinfo] = useState({birth_date:"",date_created:""});
@@ -22,6 +23,7 @@ export default function MyInfo() {
   return (
 
     <div className='container py-4'>
+       <CheckUserComp/>
       {/* <Link to="/admin/addCategory" className='btn btn-success'>Add new category</Link> */}
       <h1>My Info Details</h1>
       <table className='table table-striped table-hover'>

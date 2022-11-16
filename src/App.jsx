@@ -16,38 +16,43 @@ import HeaderUser from './comps_user/headerUser';
 import ItemList from './comps_user/myitems/itemList';
 import MyInfo from './comps_user/myinfo/myInfo';
 import MyInfoEdit from './comps_user/myinfo/myInfoEdit';
-
+import AdminRoutes from './routes/admin_routes';
+import UserRoutes from './routes/user_routes';
 function App() {
   return (   
     <BrowserRouter>
       {/* CLIENT  */}
       <Routes>
-        <Route path="/admin/" element={<HeaderAdmin />} />
-        <Route path="/user/" element={<HeaderUser />} />
-        <Route path="/" element={<Header />} />
+        {/* <Route path="/admin/*" element={<HeaderAdmin />} />
+        <Route path="/user/*" element={<HeaderUser />} />
+        <Route path="/*" element={<Header />} /> */}
       </Routes>
     {/* GUEST ROUTES */}
       <Routes>
+  
         <Route index element={<Home/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<SignUp/>}/>
       </Routes>
     {/* CLIENT ROUTES */}
     <Routes>
-        <Route index element={<Home/>} />
-        <Route path='/user/' element={<MyInfo/>} />
-        <Route path='/user/myinfo' element={<MyInfo/>} />
-        <Route path='/user/myinfo/edit' element={<MyInfoEdit/>}/>
-        <Route path='/user/myitems' element={<ItemList/>}/>
+        <Route element={<UserRoutes/>}>
+          <Route path='/user/' element={<HeaderUser />} />
+         <Route path='/user/myinfo' element={<MyInfo/>} />
+         <Route path='/user/myinfo/edit' element={<MyInfoEdit/>}/>
+         <Route path='/user/myitems' element={<ItemList/>}/>
+       </ Route>
       </Routes>
       <Routes>
-        {/* ADMIN ROUTES */}      
+        {/* ADMIN ROUTES */}
+        <Route element={<AdminRoutes/>}>   
         <Route path="/admin" element={<LoginAdmin />} />
         <Route path="/admin/users" element={<UsersList />} />
         <Route path="/admin/categories" element={<CategoriesList />} />
         <Route path="/admin/addCategory" element={<AddCategoryForm />} />
         <Route path="/admin/editCategory/:id" element={<EditCategory />} />
         <Route path="/admin/foods" element={<FoodsList />} />
+        </ Route>
       </Routes>
     </BrowserRouter>
   );
