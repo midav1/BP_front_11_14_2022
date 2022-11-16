@@ -6,7 +6,7 @@ import { API_URL, doApiGet } from '../services/apiService';
 // קומפנינטה שכל תפקידה לבדוק אם המשתמש הוא אדמין
 // תתווסף בכל קומפנינטה שהמשתמש חייב להיות
 // אדמין כדי לבצע פעולות בה
-export default function CheckAdminComp() {
+export default function CheckUserComp() {
   
   let nav = useNavigate();
 
@@ -18,9 +18,9 @@ export default function CheckAdminComp() {
     try{
       let url = API_URL+"/users/checkToken"
       let resp = await doApiGet(url);
-      if(resp.data.role != "admin"){
-        alert("You must be admin to be here ,try log in again");
-        nav("/admin")
+      if(resp.data.role != "user"){
+        alert("You must be USER to be here ,try log in again");
+        nav("/user")
       }
     }
     catch(err){

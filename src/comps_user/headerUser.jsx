@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import CheckUserComp from './checkUserComp'
 
 const HeaderUser = () => {
     return (
+        
         <div >
+            <CheckUserComp/>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
                     <Link className="navbar-brand" to={"#"}>User</Link>
