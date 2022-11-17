@@ -20,7 +20,7 @@ export default function MyInfoEdit() {
     try {
       let resp = await doApiGet(url);
       console.log(resp.data);
-      let  d= new Date(resp.data.birth_date);
+      let d= new Date(resp.data.birth_date);
       let date = d.getDate();
       let month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
       let year = d.getFullYear();
@@ -72,13 +72,15 @@ export default function MyInfoEdit() {
         <label>Name:</label>
         <input defaultValue={info.name} {...register("name", { required: true, minLength: 2 })} type="text" className='form-control' />
         {errors.name && <div className='text-danger'>Enter valid name (min 2 chars) </div>}
-        <label >Email:</label>
+        <label  >Email:</label>
         <input defaultValue={info.email} disabled={true} type="text" className='form-control' />
         <label>Phone:</label>
         <input defaultValue={info.phone} {...register("phone", { required: true, minLength: 2 })} type="text" className='form-control' />
         {errors.phone && <div className='text-danger'>Enter valid phone (min 2 chars) </div>}
         <div className='mt-3'>
         <label>Birthday:</label>
+    
+
         <input  defaultValue={info.birth_date} {...register('birth_date', { required: true })} className='form-control mt-2' placeholder='birth date...' type="date" />
         {errors.birth_date && <small className='text-danger d-block'>Enter valid birth date </small>}
         <label>Info:</label>
