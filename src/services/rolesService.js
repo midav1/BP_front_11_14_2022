@@ -8,3 +8,9 @@ export async function checkIfAdmin() {
 
   return resp.data.role === 'admin'
 }
+export async function checkIfUser() {
+  
+  let resp = await doApiGet(url);
+
+  return resp.data.role === 'user'
+}

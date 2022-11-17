@@ -1,8 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import CheckUserComp from './checkUserComp'
-
+import { ROLE, TOKEN_NAME } from '../services/apiService'
 const HeaderUser = () => {
+    const nav = useNavigate();
+
+
+    const onLogOut = () => {
+      // מחיקת טוקן
+      if (window.confirm("Are you sure you want to logout ?")) {
+        localStorage.removeItem(TOKEN_NAME)
+        localStorage.removeItem(ROLE)
+        // להעביר לעמוד לוג אין
+        nav("/");
+      }
+    }
     return (
         
         <div >
@@ -24,9 +36,9 @@ const HeaderUser = () => {
                             <li className="nav-item">
                                 <Link className="nav-link" to={"/user/myitems"}>My Items</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to={"/"}>Logout</Link>
-                            </li>
+                            <div>
+                             {localStorage[TOKEN_NAME] ? <button className='btn btn-danger' onClick={onLogOut}>Log out</button> : <Link to="/login" className='btn btn-dark'>Log in page</Link>}
+                             </div>
                         </ul>
                     </div>
                 </div>

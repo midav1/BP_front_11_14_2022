@@ -46,7 +46,7 @@ function App() {
       <Routes>
         {/* ADMIN ROUTES */}
         <Route element={<AdminRoutes/>}>   
-        <Route path="/admin" element={<LoginAdmin />} />
+        <Route path="/admin" element={<HeaderAdmin />} />
         <Route path="/admin/users" element={<UsersList />} />
         <Route path="/admin/categories" element={<CategoriesList />} />
         <Route path="/admin/addCategory" element={<AddCategoryForm />} />

@@ -1,13 +1,26 @@
+import { useEffect, useState } from 'react';
 import { Outlet, Navigate } from 'react-router-dom'
-import { TOKEN_NAME, ROLE } from '../services/apiService';
-const token=localStorage.getItem(TOKEN_NAME)
-const role=localStorage.getItem(ROLE)
+import {checkIfUser } from '../services/rolesService';
+import { TOKEN_NAME } from '../services/apiService';
+const token = localStorage.getItem(TOKEN_NAME)
 const UserRoutes = () => {
    
-    return(
-        (token && role=="user")? <Outlet/> : <Navigate to={"/login"}/>
-    )
-}
+        const [isUser, setUser] =useState(false)
+        
+        useEffect(() => {
+            checkIfUser().then(result => {
+                setUser(result)
+            })
+        }, [])
+    
+    
+        return(
+           // (token && isUser) ? 
+            <Outlet/> 
+            //: <Navigate to="/login"/>
+        )
+    }
+
 
 export default UserRoutes
 
