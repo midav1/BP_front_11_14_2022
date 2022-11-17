@@ -4,21 +4,24 @@ import {checkIfUser } from '../services/rolesService';
 import { TOKEN_NAME } from '../services/apiService';
 const token = localStorage.getItem(TOKEN_NAME)
 const UserRoutes = () => {
-   
+        const[loading,setLoading]=useState(true);
         const [isUser, setUser] =useState(false)
         
         useEffect(() => {
             checkIfUser().then(result => {
-                setUser(result)
+                setUser(result) 
+                setLoading(false)
+                
             })
         }, [])
     
-    
+    if(loading) return <div>Loading...</div>
         return(
-           // (token && isUser) ? 
+           (token && isUser) ? 
             <Outlet/> 
-            //: <Navigate to="/login"/>
+            : <Navigate to="/login"/>
         )
+        
     }
 
 

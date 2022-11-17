@@ -18,6 +18,7 @@ import MyInfo from './comps_user/myinfo/myInfo';
 import MyInfoEdit from './comps_user/myinfo/myInfoEdit';
 import AdminRoutes from './routes/admin_routes';
 import UserRoutes from './routes/user_routes';
+import AllFoods from './comps_admin/foods/allFoods';
 function App() {
   return (   
     <BrowserRouter>
@@ -52,6 +53,7 @@ function App() {
         <Route path="/admin/addCategory" element={<AddCategoryForm />} />
         <Route path="/admin/editCategory/:id" element={<EditCategory />} />
         <Route path="/admin/foods" element={<FoodsList />} />
+        <Route path="/admin/allfoods" element={<AllFoods/>}/>
         </ Route>
       </Routes>
     </BrowserRouter>

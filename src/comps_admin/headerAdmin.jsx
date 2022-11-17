@@ -36,6 +36,9 @@ export default function HeaderAdmin() {
               <li>
                 <Link to="/admin/foods">Foods</Link>
               </li>
+              <li>
+                <Link to="/admin/allfoods">All Foods</Link>
+              </li>
             </ul> : <ul></ul> }
             <div>
               {localStorage[TOKEN_NAME] ? <button className='btn btn-danger' onClick={onLogOut}>Log out</button> : <Link to="/login" className='btn btn-dark'>Log in page</Link>}

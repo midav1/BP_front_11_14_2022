@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { doApiMethod, API_URL, TOKEN_NAME, ROLE } from '../services/apiService'
 import { observer } from 'mobx-react'
 import store from '../store/UserStore'
+import AdminRoutes from '../routes/admin_routes'
 
 export default function Login() {
 	const {

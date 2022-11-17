@@ -5,19 +5,21 @@ import { checkIfAdmin } from './../services/rolesService'
 const token = localStorage.getItem(TOKEN_NAME)
 
 const AdminRoutes = () => {  
+    const[loading,setLoading]=useState(true);
     const [isAdmin, setAdmin] =useState(false)
     
     useEffect(() => {
         checkIfAdmin().then(result => {
             setAdmin(result)
+            setLoading(false)
         })
     }, [])
-
-
+    if(loading) return <div>Loading...</div>
     return(
-       // (token && isAdmin) ? 
+        
+        (token && isAdmin) ? 
         <Outlet/> 
-        //: <Navigate to="/login"/>
+        : <Navigate to="/login"/>
     )
 }
 
