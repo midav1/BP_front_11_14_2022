@@ -41,7 +41,7 @@ export default function EditCategory() {
     console.log(url)
     try {
 
-      let resp = await doApiMethod(url, "PUT", bodyFormData)
+      let resp = await doApiMethod(url, "PATCH", bodyFormData)
       console.log(resp.data)
       if (resp.data) {
         alert("Food update succefuly");

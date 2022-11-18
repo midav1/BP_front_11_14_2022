@@ -63,7 +63,7 @@ export default function Login() {
 				{errors.email && <div className="text-danger">Enter valid email</div>}
 
 				<label>Password:</label>
-				<input {...passwordRef} type="text" className="form-control" />
+				<input {...passwordRef} type="password" className="form-control" tu/>
 				{errors.password && (
 					<div className="text-danger">Enter min 3 charts password</div>
 				)}

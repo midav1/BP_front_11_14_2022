@@ -1,5 +1,6 @@
 import React,{ useState , useEffect }  from 'react'
 import { Link } from 'react-router-dom';
+import ChangePassword from '../../change_password/change_password';
 import { API_URL, doApiGet, doApiMethod} from '../../services/apiService';
 import CheckUserComp from '../checkUserComp';
 
@@ -62,6 +63,7 @@ export default function MyInfo() {
     </tr>
         </tbody>
       </table>
+      <ChangePassword/>
     </div>
 
   )
