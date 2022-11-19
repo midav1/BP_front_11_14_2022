@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ChangePassword from '../../change_password/change_password';
 import { API_URL, doApiGet, doApiMethod} from '../../services/apiService';
 import CheckUserComp from '../checkUserComp';
+import HeaderUser from '../headerUser';
 
 export default function MyInfo() {
   const [info,setMyinfo] = useState({birth_date:"",date_created:""});
@@ -25,6 +26,7 @@ export default function MyInfo() {
 
     <div className='container py-4'>
        <CheckUserComp/>
+       <HeaderUser/>
       {/* <Link to="/admin/addCategory" className='btn btn-success'>Add new category</Link> */}
       <h1>My Info Details</h1>
       <table className='table table-striped table-hover'>
