@@ -14,6 +14,7 @@ import SignUp from './comps_quest/signUp';
 import Home from './comps_quest/home';
 import HeaderUser from './comps_user/headerUser';
 import ItemList from './comps_user/myitems/itemList';
+import AddItemForm from './comps_user/myitems/addItemForm';
 import MyInfo from './comps_user/myinfo/myInfo';
 import MyInfoEdit from './comps_user/myinfo/myInfoEdit';
 import AdminRoutes from './routes/admin_routes';
@@ -42,6 +43,7 @@ function App() {
          <Route path='/user/myinfo' element={<MyInfo/>} />
          <Route path='/user/myinfo/edit' element={<MyInfoEdit/>}/>
          <Route path='/user/myitems' element={<ItemList/>}/>
+         <Route path='/user/myitems/additem' element={<AddItemForm/>}/>
        </ Route>
       </Routes>
       <Routes>

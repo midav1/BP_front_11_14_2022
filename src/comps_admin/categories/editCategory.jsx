@@ -69,13 +69,13 @@ export default function EditCategory() {
         {errors.name && <div className='text-danger'>Enter valid name (min 2 chars) </div>}
         <label >Url name:</label>
         {/* disabled - לא מאפשר לגעת באינפוט */}
-        <input defaultValue={info.url_name}  {...register("url_name", { required: true, minLength: 2 })} type="text"  className='form-control'  />
+        <input defaultValue={info.url_name}  type="text"  className='form-control'  disabled={true} />
         {errors.url_name && <div className='text-danger'>Enter valid url name (min 2 chars) </div>}
         <label>Info:</label>
         <textarea defaultValue={info.info} {...register("info", { required: true, minLength: 2 })} className='form-control' rows="5"></textarea>
         {errors.url_name && <div className='text-danger'>Enter valid info  (min 2 chars) </div>}
         <label>Img url:</label>
-        <input defaultValue={info.img_url} type="text" className='form-control'disabled={true} />
+        <input defaultValue={info.img_url} {...register("img_url", { required: true, minLength: 2 })}type="text" className='form-control' />
         {errors.img_url && <div className='text-danger'>Enter valid url   (min 2 chars) </div>}
         <img src={info.img_url} alt="img" height="100"/>
         <div className='mt-3'>

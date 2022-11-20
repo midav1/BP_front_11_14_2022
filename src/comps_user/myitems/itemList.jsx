@@ -1,3 +1,4 @@
+import Link from 'antd/lib/typography/Link';
 import React,{ useState , useEffect }  from 'react'
 import { API_URL, doApiGet } from '../../services/apiService';
 import CheckUserComp from '../checkUserComp';
@@ -31,11 +32,18 @@ export default function ItemList() {
  <CheckUserComp/>
     <HeaderUser/>
       <h1>List of items in systems</h1>
+      <Link to="/user/myitems/additem" className='btn btn-success'>Add new item for sell</Link>
       <table className='table table-striped table-hover'>
         <thead>
           <tr>
             <th>#</th>
             <th>Name</th>
+            <th>Info</th>
+            <th>Hand</th>
+            <th>Img_url</th>
+            <th>Location</th>
+            <th>Categories_url</th>
+            <th>Price</th>
           </tr>
         </thead>
         <tbody>

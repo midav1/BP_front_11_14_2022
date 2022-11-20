@@ -13,6 +13,11 @@ export default function Item(props) {
     <tr>
       <td>{props.index + 1}</td>
       <td>{item.name}</td>
+      <td>{item.info}</td>
+      <td>{item.img_url}</td>
+      <td>{item.location}</td>
+      <td>{item.categories_url}</td>
+      <td>{item.price}</td>
     </tr></div>
   )
 }
