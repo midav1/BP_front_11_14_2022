@@ -31,7 +31,6 @@ export default function FoodsList() {
   return (
     <div className='container'>
       <CheckAdminComp />
-      
       <h1>List of foods</h1>
       <PageNav urlPageApi={API_URL+"/foods/count"}  perPage={5} navToDir="/admin/foods?page=" cssClass="btn btn-info ms-2"  />
       <table className='table table-striped table-hover'>

@@ -36,6 +36,9 @@ const HeaderUser = () => {
                             <li className="nav-item">
                                 <Link className="nav-link" to={"/user/myitems"}>My Items</Link>
                             </li>
+                            <li className="nav-item">
+                            <Link to="/user/myitems/additem" className='btn btn-success'>Add new item for sell</Link>
+                            </li>
                             <div>
                              {localStorage[TOKEN_NAME] ? <button className='btn btn-danger' onClick={onLogOut}>Log out</button> : <Link to="/login" className='btn btn-dark'>Log in page</Link>}
                              </div>
