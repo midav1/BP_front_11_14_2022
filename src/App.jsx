@@ -20,6 +20,7 @@ import MyInfoEdit from './comps_user/myinfo/myInfoEdit';
 import AdminRoutes from './routes/admin_routes';
 import UserRoutes from './routes/user_routes';
 import AllFoods from './comps_admin/foods/allFoods';
+import Upload from './services/uploadService';
 function App() {
   return (   
     <BrowserRouter>
@@ -44,6 +45,7 @@ function App() {
          <Route path='/user/myinfo/edit' element={<MyInfoEdit/>}/>
          <Route path='/user/myitems' element={<ItemList/>}/>
          <Route path='/user/myitems/additem' element={<AddItemForm/>}/>
+         <Route path='/user/upload' element={<Upload/>}/>
        </ Route>
       </Routes>
       <Routes>

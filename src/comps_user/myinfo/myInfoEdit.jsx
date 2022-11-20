@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import { API_URL, doApiGet, doApiMethod } from '../../services/apiService';
 import CheckUserComp from '../checkUserComp';
 import HeaderUser from '../headerUser';
+import Upload from '../../services/uploadService';
 
 
 
@@ -97,6 +98,8 @@ export default function MyInfoEdit() {
         <label>My profile phote:</label>
         <input  defaultValue={info.img_url}{...register('img_url', { required: true })} className='form-control'  type="text" />
         {errors.img_url && <small className='text-danger d-block'>upload new photo </small>}
+        <label>Update photo:</label>
+        {<Upload/>}
           <button className='btn btn-success me-5'>Update My info</button>
           <Link className='btn btn-danger' to="/user/myinfo">Back</Link>
         </div>
