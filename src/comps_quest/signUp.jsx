@@ -17,7 +17,6 @@ const SignUp = () => {
         let url = API_URL + "/users"
         try {
           let resp = await doApiMethod(url,"POST",bodyData);
-
             nav("/")
           console.log(resp.data)
         }
