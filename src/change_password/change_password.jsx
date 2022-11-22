@@ -42,9 +42,9 @@ export default function ChangePassword() {
                     {errors.email && <small className='text-danger d-block'>Enter valid email</small>}
                     <input {...register('password', { required: true, minLength: 3, maxLength: 99 })}   className='form-control mt-2' placeholder='password...' type="password" />
                     {errors.password && <small className='text-danger d-block'>Enter your password </small>}
-                    <input {...register('newpassword', { required: true, minLength: 3, maxLength: 99 })}   className='form-control mt-2' placeholder='password...' type="password" />
+                    <input {...register('newpassword', { required: true, minLength: 3, maxLength: 99 })}   className='form-control mt-2' placeholder='new password...' type="password" />
                     {errors.password && <small className='text-danger d-block'>Enter NEW valid password </small>}
-                    <input {...register('newpassword2', { required: true, validate: (value) => { return value == getValues('newpassword') } })} className='form-control mt-2' placeholder='confirm password...' type="password" />
+                    <input {...register('newpassword2', { required: true, validate: (value) => { return value == getValues('newpassword') } })} className='form-control mt-2' placeholder='confirm  new password...' type="password" />
                     {errors.password2 && <small className='text-danger d-block'>password not match </small>}
                     <button className='btn btn-primary mt-3'>Change Password</button>
                 </form>  

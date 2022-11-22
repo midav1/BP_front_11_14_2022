@@ -39,7 +39,7 @@ const SignUp = () => {
                     <input {...register('password', { required: true, minLength: 3, maxLength: 99 })}   className='form-control mt-2' placeholder='password...' type="password" />
                     {errors.password && <small className='text-danger d-block'>Enter valid password </small>}
 
-                    <input {...register('password2', { required: true, validate: (value) => { return value == getValues('password') } })} className='form-control mt-2' placeholder='confirm password...' type="password" />
+                    <input {...register('password2', { required: true, validate: (value) => { return value === getValues('password') } })} className='form-control mt-2' placeholder='confirm password...' type="password" />
                     {errors.password2 && <small className='text-danger d-block'>password not match </small>}
 
                     <input {...register('phone', { required: true, minLength: 8, maxLength: 99 })} className='form-control mt-2' placeholder='phone...' type="text" />
