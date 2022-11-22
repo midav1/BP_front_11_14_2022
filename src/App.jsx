@@ -32,7 +32,6 @@ function App() {
       </Routes>
     {/* GUEST ROUTES */}
       <Routes>
-  
         <Route index element={<Home/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<SignUp/>}/>
@@ -58,7 +57,7 @@ function App() {
         <Route path="/admin/editCategory/:id" element={<EditCategory />} />
         <Route path="/admin/foods" element={<FoodsList />} />
         <Route path="/admin/allfoods" element={<AllFoods/>}/>
-        </ Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );

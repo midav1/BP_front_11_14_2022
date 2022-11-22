@@ -14,7 +14,7 @@ export default function Upload() {
 
   const doApiFileUpload = async() => {
     console.log(fileRef.current.files[0])
-    if(fileRef.current.files.length == 0){
+    if(fileRef.current.files.length === 0){
       return alert("you need to choose file and then upload it")
     }
     let myFile = fileRef.current.files[0];
@@ -32,7 +32,8 @@ export default function Upload() {
           'x-api-key': localStorage[TOKEN_NAME]
         }
       })
-      if(resp.data.status){
+      console.log(resp)
+      if(resp.data.status===201){
         alert("file uploaded")
       }
     }

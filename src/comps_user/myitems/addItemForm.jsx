@@ -46,11 +46,14 @@ export default function AddItemForm() {
         <input { ...register("info",{required:true, minLength:2})} type="text" className='form-control' />
         {errors.info && <div className='text-danger'>Enter valid info(min 2 chars) </div>}
         <label>Hand:</label>
-        <input { ...register("Hand",{required:true, minLength:2})}  type="number" className='form-control' />
+        <input { ...register("hand",{required:true, minLength:1})}  type="text" className='form-control' />
         {errors.hand && <div className='text-danger'>Enter valid hand   (min 2 chars) </div>}
         <label>Img url:</label>
         <input { ...register("img_url",{required:true, minLength:2})}  type="text" className='form-control' />
         {errors.img_url && <div className='text-danger'>Enter valid url   (min 2 chars) </div>}
+        <label>Phone:</label>
+        <input { ...register("phone",{required:true, minLength:2})}  type="text" className='form-control' />
+        {errors.phone && <div className='text-danger'>Enter valid phone   (min 2 chars) </div>}
         <label>Location:</label>
         <input { ...register("location",{required:true, minLength:2})}  type="text" className='form-control' />
         {errors.location && <div className='text-danger'>Enter valid location  (min 2 chars) </div>}
@@ -58,10 +61,12 @@ export default function AddItemForm() {
         <input { ...register("category_url",{required:true, minLength:2})}  type="text" className='form-control' />
         {errors.category_url && <div className='text-danger'>Enter valid url   (min 2 chars) </div>}
         <label>Price:</label>
-        <input { ...register("price",{required:true, minLength:2})}  type="number" className='form-control' />
+        <input { ...register("price",{required:true, minLength:1})}  type="text" className='form-control' />
         {errors.price && <div className='text-danger'>Enter valid price  (min 2 chars) </div>}
-        <div className='mt-3'>
-            
+        <label>Usernickname:</label>
+        <input { ...register("user_nickname",{required:true, minLength:2})}  type="text" className='form-control' />
+        {errors.user_nickname && <div className='text-danger'>Enter valid user_nickname  (min 2 chars) </div>}
+        <div className='mt-3'>   
           <button className='btn btn-success me-5'>Add new</button>
           <Link className='btn btn-danger' to="/user/myitems">Back</Link>
         </div>

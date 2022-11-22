@@ -1,5 +1,5 @@
-import Link from 'antd/lib/typography/Link';
 import React,{ useState , useEffect }  from 'react'
+import { Link } from 'react-router-dom';
 import { API_URL, doApiGet } from '../../services/apiService';
 import CheckUserComp from '../checkUserComp';
 import HeaderUser from '../headerUser';
@@ -31,8 +31,8 @@ export default function ItemList() {
     <div className='container'>
  <CheckUserComp/>
     <HeaderUser/>
+    <Link to="/user/myitems/additem" className='btn btn-success'>Add new item for sell</Link>
       <h1>List of items in systems</h1>
-      <Link to="/user/myitems/additem" className='btn btn-success'>Add new item for sell</Link>
       <table className='table table-striped table-hover'>
         <thead>
           <tr>
@@ -42,14 +42,14 @@ export default function ItemList() {
             <th>Hand</th>
             <th>Img_url</th>
             <th>Location</th>
-            <th>Categories_url</th>
+            <th>Category_url</th>
             <th>Price</th>
           </tr>
         </thead>
         <tbody>
           {ar.map((item,i) => {
             return(
-              <Item key={item._id}  item={item}/>
+              <Item key={item._id} index={i} item={item}/>
             )
           })}
         </tbody>
