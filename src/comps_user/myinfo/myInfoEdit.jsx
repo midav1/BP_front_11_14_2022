@@ -5,6 +5,7 @@ import { API_URL, doApiGet, doApiMethod } from '../../services/apiService';
 import CheckUserComp from '../checkUserComp';
 import HeaderUser from '../headerUser';
 import Upload from '../../services/uploadService';
+import Cloudinary from '../../services/cloudinaryService';
 
 
 
@@ -69,7 +70,6 @@ export default function MyInfoEdit() {
 
     <div className='container'>
        <CheckUserComp/>
-       <HeaderUser/>
       <h2>Edit My info</h2>
       {info.name?<form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow'>
         <label>Name:</label>
@@ -100,6 +100,7 @@ export default function MyInfoEdit() {
         {errors.img_url && <small className='text-danger d-block'>upload new photo </small>}
         <label>Update photo:</label>
         {<Upload/>}
+        {<Cloudinary/>}
           <button className='btn btn-success me-5'>Update My info</button>
           <Link className='btn btn-danger' to="/user/myinfo">Back</Link>
         </div>

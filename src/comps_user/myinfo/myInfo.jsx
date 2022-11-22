@@ -2,6 +2,7 @@ import React,{ useState , useEffect }  from 'react'
 import { Link } from 'react-router-dom';
 import ChangePassword from '../../change_password/change_password';
 import { API_URL, doApiGet, doApiMethod} from '../../services/apiService';
+import Cloudinary from '../../services/cloudinaryService';
 import Upload from '../../services/uploadService';
 import CheckUserComp from '../checkUserComp';
 import HeaderUser from '../headerUser';
@@ -27,7 +28,6 @@ export default function MyInfo() {
 
     <div className='container py-4'>
        <CheckUserComp/>
-       <HeaderUser/>
       {/* <Link to="/admin/addCategory" className='btn btn-success'>Add new category</Link> */}
       <h1>My Info Details</h1>
       <table className='table table-striped table-hover'>
@@ -63,7 +63,8 @@ export default function MyInfo() {
       <td>{info.location}</td>
       <td>{info.nickname}</td>
       <td><img src={info.img_url} height="40" alt="pic" /></td>
-      <td>{<Upload/>}</td>
+      {/* <td>{<Upload/>}</td> */}
+      <td>{<Cloudinary/>}</td>
       <td> <Link className='btn btn-info me-2' to={"/user/myinfo/edit"} >Edit</Link></td>
     </tr>
         </tbody>

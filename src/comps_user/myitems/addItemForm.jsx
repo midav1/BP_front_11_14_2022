@@ -36,7 +36,6 @@ export default function AddItemForm() {
   return (
     <div className='container'>
       <CheckUserComp />
-      <HeaderUser/>
       <h2>Add new item</h2>
       <form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow'>
         <label>Name:</label>

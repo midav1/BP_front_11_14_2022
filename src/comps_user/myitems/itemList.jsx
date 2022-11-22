@@ -2,7 +2,6 @@ import React,{ useState , useEffect }  from 'react'
 import { Link } from 'react-router-dom';
 import { API_URL, doApiGet } from '../../services/apiService';
 import CheckUserComp from '../checkUserComp';
-import HeaderUser from '../headerUser';
 import Item from './item';
 
 export default function ItemList() {
@@ -30,7 +29,6 @@ export default function ItemList() {
   return (
     <div className='container'>
  <CheckUserComp/>
-    <HeaderUser/>
     <Link to="/user/myitems/additem" className='btn btn-success'>Add new item for sell</Link>
       <h1>List of items in systems</h1>
       <table className='table table-striped table-hover'>
