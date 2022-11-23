@@ -14,7 +14,6 @@ export default function AddCategoryForm() {
     console.log(bodyFormData)
     doApi(bodyFormData);
   }
-
   const doApi = async(bodyFormData) => {
     let url = API_URL+ "/categories";
     try{
@@ -33,10 +32,7 @@ export default function AddCategoryForm() {
       alert("There problem , or category url already in system")
     }
   }
-
-
-  return (
-    
+  return ( 
     <div className='container'>
       <CheckAdminComp />
       <h2>Add new category</h2>

@@ -4,7 +4,6 @@ import CheckUserComp from '../checkUserComp';
 
 export default function Item(props) {
   let item = props.item;
-
   return (
 
     
