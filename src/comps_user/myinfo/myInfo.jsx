@@ -3,7 +3,7 @@ import React,{ useState , useEffect }  from 'react'
 import { Link } from 'react-router-dom';
 import ChangePassword from '../../change_password/change_password';
 import { API_URL, doApiGet, doApiMethod} from '../../services/apiService';
-import {Cloudinary}from '../../services/cloudinaryService';
+import {Cloudinary2}from '../../services/cloudinaryService';
 import CheckUserComp from '../checkUserComp';
 function MyInfo() {
   // console.log(LocalStore.resp);
@@ -66,7 +66,7 @@ function MyInfo() {
         </tbody>
       </table>
       <ChangePassword/>
-      <Cloudinary/>
+      <Cloudinary2/>
     </div>
 
   )

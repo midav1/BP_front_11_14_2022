@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form";
 import { API_URL, doApiGet, doApiMethod } from "../../services/apiService";
 import CheckUserComp from "../checkUserComp";
 import { observer } from "mobx-react-lite";
-import { Cloudinary } from "../../services/cloudinaryService";
+import { Cloudinary2 } from "../../services/cloudinaryService";
+import Cloudinary from "../../services/cloudinary";
 // import { LocalStore } from "../../services/cloudinaryService";
-import ComponentColor from "../../componentcolor";
 function MyInfoEdit() {
   const [info, setInfo] = useState({ birth_date: "" });
   const {
@@ -67,10 +67,6 @@ function MyInfoEdit() {
   return (
     <div className="container">
       <CheckUserComp />
-      {
-              <Cloudinary  folder={"users_preset"}
-              onImageUpload={(url) => setImageUrl(url)}/>
-            }
       <h2>Edit My info</h2>
       {info.name ? (
         <form
@@ -159,7 +155,8 @@ function MyInfoEdit() {
               <small className="text-danger d-block">upload new photo </small>
             )}
             <label>Update photo:</label>
-          
+        <Cloudinary folder={"users_preset"}
+              onImageUpload={(url) => setImageUrl(url)}/>
             <button className="btn btn-success me-5">Update My info</button>
             <Link className="btn btn-danger" to="/user/myinfo">
               Back

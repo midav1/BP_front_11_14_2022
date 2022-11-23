@@ -2,28 +2,7 @@ import axios from "axios";
 import { makeAutoObservable } from "mobx";
 import React, { useState } from "react";
 import { ReactFileInputCustom } from "react-file-input-custom";
-// class CloudinaryState {
-//   constructor() {
-//     makeAutoObservable(this);
-//   }
-//   resp = "";
-//   getResponse = async (formData) => {
-//     const resp = await axios.post(
-//       "https://api.cloudinary.com/v1_1/dos1hlppb/image/upload",
-//       formData
-//     );
-//     this.resp = resp.data.url;
-//   };
-// }
-// export const LocalStore = new CloudinaryState();
-export function Cloudinary(props) {
-  // const uploadImage = async () => {
-  //   const formData = new FormData();
-  //   formData.append("file", courseImagFile);
-  //   formData.append("upload_preset", props.folder);
-  //   LocalStore.getResponse(formData);
-  // };
-
+export function Cloudinary2(props) {
   const [courseImagFile, setCourseImagFile] = useState(false);
     const uploadImage = async () => {
       const formData = new FormData();
