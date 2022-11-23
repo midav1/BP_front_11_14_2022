@@ -49,6 +49,7 @@ export default function Login() {
 	let passwordRef = register('password', { required: true, minLength: 3 })
 
 	return (
+		
 		<div className="container">
 			<h1 className="text-center">Log in </h1>
 			<form

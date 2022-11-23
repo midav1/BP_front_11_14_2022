@@ -1,13 +1,12 @@
+import { observer } from 'mobx-react-lite';
 import React,{ useState , useEffect }  from 'react'
 import { Link } from 'react-router-dom';
 import ChangePassword from '../../change_password/change_password';
 import { API_URL, doApiGet, doApiMethod} from '../../services/apiService';
-import Cloudinary from '../../services/cloudinaryService';
-import Upload from '../../services/uploadService';
+import {Cloudinary}from '../../services/cloudinaryService';
 import CheckUserComp from '../checkUserComp';
-import HeaderUser from '../headerUser';
-
-export default function MyInfo() {
+function MyInfo() {
+  // console.log(LocalStore.resp);
   const [info,setMyinfo] = useState({birth_date:"",date_created:""});
   useEffect(() => {
     doApi();
@@ -45,7 +44,6 @@ export default function MyInfo() {
             <th>Location</th>
             <th>Nickname</th>
             <th>My profile photo</th>
-            <th>Upload profile photo</th>
             <th>Edit Profile</th>
           </tr>
         </thead>
@@ -63,14 +61,14 @@ export default function MyInfo() {
       <td>{info.location}</td>
       <td>{info.nickname}</td>
       <td><img src={info.img_url} height="40" alt="pic" /></td>
-      {/* <td>{<Upload/>}</td> */}
-      <td>{<Cloudinary/>}</td>
       <td> <Link className='btn btn-info me-2' to={"/user/myinfo/edit"} >Edit</Link></td>
     </tr>
         </tbody>
       </table>
       <ChangePassword/>
+      <Cloudinary/>
     </div>
 
   )
 }
+export default observer(MyInfo)
