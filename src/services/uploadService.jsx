@@ -26,6 +26,7 @@ export default function Upload() {
     const formData = new FormData();
     formData.append("myFile22",myFile);
     let url = API_URL+"/upload";
+    //let url = API_URL+"/cloud/api/upload";
     try{  
       let resp = await axios.post(url, formData, {
         headers: {
