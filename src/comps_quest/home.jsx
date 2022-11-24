@@ -1,12 +1,12 @@
+
 import React from 'react'
-import Cloudinary from '../services/cloudinary'
+import Upload from '../services/cloudServicetoNode'
 import Header from './header'
 const Home = () => {
   return (
     <div>
       <Header/>
-      <Cloudinary/>
-      Home
+      <Upload/>
     </div>
   )
 }

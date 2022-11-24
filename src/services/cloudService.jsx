@@ -14,8 +14,9 @@ const Cloudinary = (props) => {
             "https://api.cloudinary.com/v1_1/dos1hlppb/image/upload",
             formData
         );
-       console.log(resp)
-       props.onImageUpload(resp.data.url);
+        props.onImageUpload(resp.data.url);
+       console.log(resp.data.url)
+       return resp.data.url
     };
     // 1 objectUser = {name: "user", email:   "user@example.com"}  
     // 2 objectUser.imgUrl = await uploadImage()
@@ -42,3 +43,9 @@ const Cloudinary = (props) => {
 }
 
 export default Cloudinary
+ // const uploadImage = async () => {
+  //   const formData = new FormData();
+  //   formData.append("file", courseImagFile);
+  //   formData.append("upload_preset", props.folder);
+  //   LocalStore.getResponse(formData);
+  // };
