@@ -14,8 +14,8 @@ const Cloudinary = (props) => {
             "https://api.cloudinary.com/v1_1/dos1hlppb/image/upload",
             formData
         );
-        props.onImageUpload(resp.data.url);
-       console.log(resp.data.url)
+       /// props.onImageUpload(resp.data.url);
+       console.log(resp.data)
        return resp.data.url
     };
     // 1 objectUser = {name: "user", email:   "user@example.com"}  

@@ -164,7 +164,7 @@ function MyInfoEdit() {
               <small className="text-danger d-block">upload new photo </small>
             )}
             <label>Update photo:</label>
-            <Upload preset={"users_preset"}/> 
+            
           {/* onClick={()=>openInNewTab (<Upload preset={"users_preset"}/>)}  */}
         {/* <Cloudinary folder={"users_preset"}
               onImageUpload={(url) => setImageUrl(url)}/>*/}
@@ -174,7 +174,8 @@ function MyInfoEdit() {
             </Link>
             
         
-        </form> </div>
+        </form><Upload preset={"users_preset"}/> 
+        <Cloudinary preset={"users_preset"}/> </div>
       ) : (
         <h2>Loading...</h2>
       )}
