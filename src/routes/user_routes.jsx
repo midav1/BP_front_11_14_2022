@@ -22,9 +22,7 @@ const UserRoutes = () => {
               <React.Fragment>
                 <HeaderUser />
                     <Outlet/>
-                </React.Fragment>
-             
-             
+                </React.Fragment>       
             : <Navigate to="/login"/>
         )
         

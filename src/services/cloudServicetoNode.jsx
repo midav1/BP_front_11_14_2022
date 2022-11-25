@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Alert from './alert';
+import { API_URL, TOKEN_NAME } from './apiService';
 
-export default function Upload() {
+export default function Upload(props) {
     const [fileInputState, setFileInputState] = useState('');
     const [previewSource, setPreviewSource] = useState('');
     const [selectedFile, setSelectedFile] = useState();
@@ -37,12 +38,13 @@ export default function Upload() {
     };
 
     const uploadImage = async (base64EncodedImage) => {
-        console.log(base64EncodedImage)
         try {
-            await fetch('http://localhost:3001/cloud/api/upload', {
+            await fetch(API_URL+'/cloud/api/upload', {
                 method: 'POST',
-                body: JSON.stringify({ data: base64EncodedImage }),
-                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: base64EncodedImage ,preset:props.preset}),
+                headers: {
+                     'Content-Type': 'application/json' ,
+                     'x-api-key': localStorage[TOKEN_NAME]}
             });
             setFileInputState('');
             setPreviewSource('');
