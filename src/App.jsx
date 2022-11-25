@@ -17,7 +17,7 @@ import MyInfoEdit from './comps_user/myinfo/myInfoEdit';
 import AdminRoutes from './routes/admin_routes';
 import UserRoutes from './routes/user_routes';
 import AllFoods from './comps_admin/foods/allFoods';
-import Upload from './services/uploadService';
+import Upload from './services/cloudServicetoNode';
 function App() {
   return (   
     <BrowserRouter>

@@ -4,10 +4,13 @@ import { useForm } from "react-hook-form";
 import { API_URL, doApiGet, doApiMethod } from "../../services/apiService";
 import CheckUserComp from "../checkUserComp";
 import { observer } from "mobx-react-lite";
-import Cloudinary from "../../services/cloudService";
 import Upload from "../../services/cloudServicetoNode";
+import Cloudinary from "../../services/cloudServiceYarin";
 // import { LocalStore } from "../../services/cloudinaryService";
 function MyInfoEdit() {
+  const openInNewTab = url => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
   const [info, setInfo] = useState({ birth_date: "" });
   const {
     register,
@@ -16,8 +19,8 @@ function MyInfoEdit() {
   } = useForm();
   const nav = useNavigate();
 
-  const [imageUrl, setImageUrl] = useState("");
-   console.log(imageUrl);
+  //const [imageUrl, setImageUrl] = useState("");
+   //console.log(imageUrl);
    //if(imageUrl)
   // {info.img_url=imageUrl;}
   
@@ -72,7 +75,7 @@ function MyInfoEdit() {
     <div className="container">
       <CheckUserComp />
       <h2>Edit My info</h2>
-      {info.name ? (
+      {info.name ? (<div>
         <form
           onSubmit={handleSubmit(onSubForm)}
           className="col-md-6 p-3 shadow"
@@ -104,7 +107,6 @@ function MyInfoEdit() {
           {errors.phone && (
             <div className="text-danger">Enter valid phone (min 2 chars) </div>
           )}
-          <div className="mt-3">
             <label>Birthday:</label>
             <input
               defaultValue={info.birth_date}
@@ -156,21 +158,23 @@ function MyInfoEdit() {
               type="text"
             />
            { <div className="e-avatar-xlarge">
-             <img src={info.img_url} style={{width:"200px"}} alt="profile photo"></img>
+             <img src={info.img_url} style={{width:"200px"}} alt="profile photo" ></img>
             </div>}
             {errors.img_url && (
               <small className="text-danger d-block">upload new photo </small>
             )}
             <label>Update photo:</label>
-            <Upload/>
-        <Cloudinary folder={"users_preset"}
-              onImageUpload={(url) => setImageUrl(url)}/>
-            <button className="btn btn-success me-5">Update My info</button>
+            <Upload preset={"users_preset"}/> 
+          {/* onClick={()=>openInNewTab (<Upload preset={"users_preset"}/>)}  */}
+        {/* <Cloudinary folder={"users_preset"}
+              onImageUpload={(url) => setImageUrl(url)}/>*/}
+            <button className="btn btn-success me-5">Update My info</button> 
             <Link className="btn btn-danger" to="/user/myinfo">
               Back
             </Link>
-          </div>
-        </form>
+            
+        
+        </form> </div>
       ) : (
         <h2>Loading...</h2>
       )}
