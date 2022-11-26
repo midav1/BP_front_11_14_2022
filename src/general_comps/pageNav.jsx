@@ -8,7 +8,7 @@ export default function PageNav(props) {
 
   useEffect(() => {
     doApi();
-  },[])
+  },[props.perPage])
 
   const doApi = async() => {
     let url = props.urlPageApi;

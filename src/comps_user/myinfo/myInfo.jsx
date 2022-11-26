@@ -3,6 +3,7 @@ import React,{ useState , useEffect }  from 'react'
 import { Link } from 'react-router-dom';
 import ChangePassword from '../../change_password/change_password';
 import { API_URL, doApiGet} from '../../services/apiService';
+import DateService from '../../services/dateService';
 import CheckUserComp from '../checkUserComp';
 function MyInfo() {
   // console.log(LocalStore.resp);
@@ -51,9 +52,9 @@ function MyInfo() {
       <td>{info.name}</td>
       <td>{info.email}</td>
       <td>{info.phone}</td>
-      <td>{info.birth_date.slice(0,10)}</td>
+      <td>{DateService(info.birth_date)}</td>
       <td>{info.info}</td>
-      <td>{info.date_created.slice(0,10)}</td>
+      <td>{DateService(info.date_created)}</td>
       <td>{info.rank}</td>
       <td>{info.role}</td>
       <td>{String(info.active)}</td>
