@@ -34,7 +34,7 @@ export default function Login() {
         nav('/user')
       }
 			console.log(data)
-			alert(data.userName + ' Welcome to WeFoods!')
+			alert(data.userName + ' Welcome to WeItems!')
 		} catch (err) {
 			console.log(err.response)
 			alert('User or password worng, or service down')

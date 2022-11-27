@@ -4,9 +4,9 @@ import PageNav from "../../general_comps/pageNav";
 import SearchItems from "../../general_comps/searchItems";
 import { API_URL, doApiGet } from "../../services/apiService";
 import MySelect from "../../UI/select/MySelect";
-import FoodItem from "./foodItem";
+import ItemItem from "./itemItem";
 
-export default function FoodsList() {
+export default function ItemsList() {
   const nav = useNavigate();
   const [ar, setAr] = useState([]);
   const [querys] = useSearchParams();
@@ -20,7 +20,7 @@ export default function FoodsList() {
   const doApi = async () => {
     //?page= איסוף
     let page = querys.get("page") || 1;
-    let url = API_URL + "/foods/?page=" + page +"&&sort="+`${filter.sort}`
+    let url = API_URL + "/items/?page=" + page +"&&sort="+`${filter.sort}`
     +"&&s="+`${filter.query}` +"&&perPage="+`${limit}`;
     try {
       let resp = await doApiGet(url);
@@ -47,7 +47,7 @@ export default function FoodsList() {
       />
       <h1>List of Items</h1>
       <PageNav
-        urlPageApi={API_URL + "/foods/count"}
+        urlPageApi={API_URL + "/items/count"}
         perPage={limit}
         navToDir="/?page="
         cssClass="btn btn-info ms-2"
@@ -68,7 +68,7 @@ export default function FoodsList() {
         <tbody>
           {ar.map((item, i) => {
             return (
-              <FoodItem
+              <ItemItem
                 key={item._id}
                 index={(querys.get("page") - 1) * limit + i}
                 item={item}

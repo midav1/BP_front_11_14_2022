@@ -3,12 +3,12 @@ import { API_URL, doApiMethod } from '../../services/apiService';
 import DateService from '../../services/dateService';
 import CheckAdminComp from '../checkAdminComp';
 
-export default function FoodItem(props) {
+export default function ItemItem(props) {
 
   const onDelClick = async() =>{
     if(window.confirm("Are you sure you want to delete: "+item.name)){
       try{
-        let url = API_URL+"/foods/"+item._id;
+        let url = API_URL+"/items/"+item._id;
         let resp = await doApiMethod(url,"DELETE");
         console.log(resp.data);
         if(resp.data.deletedCount == 1){

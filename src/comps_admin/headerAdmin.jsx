@@ -34,10 +34,10 @@ export default function HeaderAdmin() {
                 <Link to="/admin/categories">Categories</Link>
               </li>
               <li>
-                <Link to="/admin/foods">Foods</Link>
+                <Link to="/admin/items">Items</Link>
               </li>
               <li>
-                <Link to="/admin/allfoods">All Foods</Link>
+                <Link to="/admin/allitems">All Items</Link>
               </li>
             </ul> : <ul></ul> }
             <div>

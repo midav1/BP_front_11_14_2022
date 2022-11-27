@@ -5,7 +5,7 @@ import UsersList from './comps_admin/users/usersList';
 import CategoriesList from './comps_admin/categories/categoriesList';
 import AddCategoryForm from './comps_admin/categories/addCategoryForm';
 import EditCategory from './comps_admin/categories/editCategory';
-import FoodsList from './comps_admin/foods/foodsList';
+import ItemsList from './comps_admin/items/itemsList';
 import Header from './comps_quest/header';
 import Login from './comps_quest/login';
 import SignUp from './comps_quest/signUp';
@@ -16,7 +16,7 @@ import MyInfo from './comps_user/myinfo/myInfo';
 import MyInfoEdit from './comps_user/myinfo/myInfoEdit';
 import AdminRoutes from './routes/admin_routes';
 import UserRoutes from './routes/user_routes';
-import AllFoods from './comps_admin/foods/allFoods';
+import AllItems from './comps_admin/items/allItems';
 import Upload from './services/cloudServicetoNode';
 function App() {
   return (   
@@ -46,8 +46,8 @@ function App() {
                     <Route path="categories" element={<CategoriesList />} />
                     <Route path="addCategory" element={<AddCategoryForm />} />
                      <Route path="editCategory/:id" element={<EditCategory />} />
-                    <Route path="foods" element={<FoodsList />} />
-                     <Route path="allfoods" element={<AllFoods/>}/>
+                    <Route path="items" element={<ItemsList />} />
+                     <Route path="allitems" element={<AllItems/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

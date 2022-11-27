@@ -16,7 +16,7 @@ export default function AddItemForm() {
     doApi(bodyFormData);
   }
   const doApi = async(bodyFormData) => {
-    let url = API_URL+ "/foods";
+    let url = API_URL+ "/items";
     try{
 
       let resp = await doApiMethod(url,"POST",bodyFormData)

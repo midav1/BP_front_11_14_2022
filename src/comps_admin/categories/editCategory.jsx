@@ -44,7 +44,7 @@ export default function EditCategory() {
       let resp = await doApiMethod(url, "PATCH", bodyFormData)
       console.log(resp.data)
       if (resp.data) {
-        alert("Food update succefuly");
+        alert("Item update succefuly");
         nav("/admin/categories")
       }
       else {
