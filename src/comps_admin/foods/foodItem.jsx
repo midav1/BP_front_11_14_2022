@@ -1,5 +1,7 @@
 import React from 'react'
 import { API_URL, doApiMethod } from '../../services/apiService';
+import DateService from '../../services/dateService';
+import CheckAdminComp from '../checkAdminComp';
 
 export default function FoodItem(props) {
 
@@ -25,17 +27,17 @@ export default function FoodItem(props) {
   return (
     <tr>
       <td>{props.index + 1}</td>
-      <td title={item.info}>{item.name}</td>
+      <td> {item.name}</td>
+      <td> {item.info}</td>
+      <td>{item.img_url } </td>
       <td>{item.location}</td>
       <td>{item.categories_url}</td>
       <td>{item.price} nis</td>
-      <td>{item.user_nickname } </td>
-      <td>{String(item.active) } </td>
-      <td>{item.date_created } </td>
-      
-      <td>
+      {/* <td>{String(item.active) } </td> */}
+      <td>{DateService( item.date_created) } </td>
+      {/* <td>
         <button onClick={() => {onDelClick()}} className='btn btn-danger'>Del</button>
-      </td>
+      </td> */}
     </tr>
   )
 }

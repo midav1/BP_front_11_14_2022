@@ -6,6 +6,7 @@ import CheckUserComp from "../checkUserComp";
 import { observer } from "mobx-react-lite";
 import Upload from "../../services/cloudServicetoNode";
 import Cloudinary from "../../services/cloudServiceYarin";
+import DateService from "../../services/dateService";
 // import { LocalStore } from "../../services/cloudinaryService";
 function MyInfoEdit() {
   const openInNewTab = url => {
@@ -33,15 +34,9 @@ function MyInfoEdit() {
     let url = API_URL + "/users/myinfo";
     try {
       let resp = await doApiGet(url);
-      console.log(resp.data);
-      let d = new Date(resp.data.birth_date);
-      let date = d.getDate();
-      let month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-      let year = d.getFullYear();
-      let newDate = year + "-" + month + "-" + date;
-      console.log(newDate);
+      let newDate=DateService(resp.data.birth_date)
       let data = resp.data;
-      let data_withdate = { ...data, birth_date: newDate };
+      let data_withdate = { ...data, birth_date: newDate};
       setInfo(data_withdate);
     } catch (err) {
       console.log(err.response);
@@ -164,7 +159,7 @@ function MyInfoEdit() {
               <small className="text-danger d-block">upload new photo </small>
             )}
             <label>Update photo:</label>
-            <Upload preset={"users_preset"}/> 
+            
           {/* onClick={()=>openInNewTab (<Upload preset={"users_preset"}/>)}  */}
         {/* <Cloudinary folder={"users_preset"}
               onImageUpload={(url) => setImageUrl(url)}/>*/}
@@ -174,7 +169,8 @@ function MyInfoEdit() {
             </Link>
             
         
-        </form> </div>
+        </form><Upload preset={"users_preset"}/> 
+        <Cloudinary/> </div>
       ) : (
         <h2>Loading...</h2>
       )}
