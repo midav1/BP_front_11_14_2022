@@ -11,7 +11,6 @@ import CheckAdminComp from '../checkAdminComp'
 function AllItems() {
     useEffect(()=>
     {
-     userStore.getPermissions();
         itemStore.getItemList();
         console.log(userStore.user.role)
     },[])

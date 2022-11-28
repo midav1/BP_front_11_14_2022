@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
-import { API_URL, doApiMethod, TOKEN_NAME } from '../services/apiService';
+import { API_URL, doApiMethod, TOKEN_KEY } from '../services/apiService';
 
 const SignUp = () => {
     const { register, getValues, handleSubmit, formState: { errors } } = useForm();

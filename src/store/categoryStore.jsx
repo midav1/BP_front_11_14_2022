@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, toJS } from "mobx";
 import { API_URL, doApiGet} from "../services/apiService";
 class Category {
   constructor() {
@@ -9,9 +9,7 @@ class Category {
     let url = API_URL + "/categories/";
     try {
       let resp = await doApiGet(url);
-    
-      this.categories = resp.data.map(({name})=> name);
-        console.log(this.categories);
+      this.categories =  (resp.data.map(({name})=> name));
     } catch (err) {
       console.log(err);
       alert("there problem ,try again later");

@@ -12,6 +12,7 @@ class Item {
         try {
             let resp = await doApiGet(url);
             console.log(resp.data);
+            console.log(this.itemList)
             this.itemList=resp.data;
           }
           catch (err) {

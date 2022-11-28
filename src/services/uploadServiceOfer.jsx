@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useRef } from 'react'
-import { API_URL, TOKEN_NAME } from '../services/apiService';
+import { API_URL, TOKEN_KEY } from '../services/apiService';
 
 export default function Upload() {
   const fileRef = useRef();
@@ -30,7 +30,7 @@ export default function Upload() {
     try{  
       let resp = await axios.post(url, formData, {
         headers: {
-          'x-api-key': localStorage[TOKEN_NAME]
+          'x-api-key': localStorage[TOKEN_KEY]
         }
       })
       console.log(resp)

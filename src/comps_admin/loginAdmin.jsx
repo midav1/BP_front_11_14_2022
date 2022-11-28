@@ -2,7 +2,7 @@
 // import React from 'react'
 // import { useForm } from "react-hook-form"
 // import { useNavigate } from 'react-router-dom';
-// import { doApiMethod, API_URL, TOKEN_NAME } from '../services/apiService';
+// import { doApiMethod, API_URL, TOKEN_KEY } from '../services/apiService';
 
 
 // export default function LoginAdmin() {
@@ -21,7 +21,7 @@
 //     try {
 //       let resp = await doApiMethod(url,"POST",bodyData);
 //         // לשמור את הטוקן
-//         localStorage.setItem(TOKEN_NAME,resp.data.token);
+//         localStorage.setItem(TOKEN_KEY,resp.data.token);
 //         // לשגר לעמוד של רשימת המשתמשים
 //         //nav("/admin/users")
 //       // console.log(resp.data)
