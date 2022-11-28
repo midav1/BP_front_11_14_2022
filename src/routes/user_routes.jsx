@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, Navigate } from 'react-router-dom'
 import {checkIfUser } from '../services/rolesService';
-import { TOKEN_NAME } from '../services/apiService';
+import { TOKEN_KEY } from '../services/apiService';
 import HeaderUser from '../comps_user/headerUser';
-const token = localStorage.getItem(TOKEN_NAME)
+const token = localStorage.getItem(TOKEN_KEY)
 const UserRoutes = () => {
         const[loading,setLoading]=useState(true);
         const [isUser, setUser] =useState(false)

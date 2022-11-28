@@ -2,13 +2,13 @@ import axios from "axios";
 
 export const API_URL = "http://localhost:3001"
 // export const API_URL = "https://monkeys.co.il"
-export const TOKEN_NAME = "FOODS_TOKEN"
+export const TOKEN_KEY = "USELL_TOKEN"
 export const ROLE = "ROLE"
 export const doApiGet = async(_url) => {
   try{
     let resp = await axios.get(_url,{
       headers:{
-        "x-api-key": localStorage[TOKEN_NAME]
+        "x-api-key": localStorage[TOKEN_KEY]
       }
     })
     return resp;
@@ -28,7 +28,7 @@ export const doApiMethod = async(_url,_method,_body = {}) => {
       method:_method,
       data:_body,
       headers:{
-        "x-api-key":localStorage[TOKEN_NAME]
+        "x-api-key":localStorage[TOKEN_KEY]
       }
     })
     return resp;

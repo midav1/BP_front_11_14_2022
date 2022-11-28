@@ -3,14 +3,16 @@ import React, { useState, useEffect } from 'react'
 import {  useNavigate, useSearchParams } from 'react-router-dom';
 import PageNav from '../../general_comps/pageNav';
 import { API_URL, doApiGet } from '../../services/apiService';
-import foodStore from '../../store/Food';
+import itemStore from '../../store/Item';
+import userStore from '../../store/userStore';
 import CheckAdminComp from '../checkAdminComp'
-import FoodItem from './foodItem';
 
-function AllFoods() {
+
+function AllItems() {
     useEffect(()=>
     {
-        foodStore.getFoodList();
+        itemStore.getItemList();
+        console.log(userStore.user.role)
     },[])
 //   const nav = useNavigate()
 //   const [ar, setAr] = useState([]);
@@ -22,7 +24,7 @@ function AllFoods() {
 //   const doApi = async () => {
 //     //?page= איסוף
 //     let page = querys.get("page") || 1;
-//     let url = API_URL + "/foods/?page="+page;
+//     let url = API_URL + "/items/?page="+page;
 //     try {
 //       let resp = await doApiGet(url);
 //       console.log(resp.data);
@@ -38,11 +40,12 @@ function AllFoods() {
     <div className='container'>
       <CheckAdminComp />
       
-      <h1>List of foods</h1>
-      <PageNav urlPageApi={API_URL+"/foods/count"}  perPage={5} navToDir="/admin/foods?page=" cssClass="btn btn-info ms-2"  />
+      <h1>List of items</h1>
+      <PageNav urlPageApi={API_URL+"/items/count"}  perPage={5} navToDir="/admin/items?page=" cssClass="btn btn-info ms-2"  />
       <table className='table table-striped table-hover'>
         <thead>
           <tr>
+          <div>users</div>
             <th>#</th>
             <th>Name</th>
             <th>Location</th>
@@ -52,10 +55,11 @@ function AllFoods() {
             <th>Active</th>
             <th>Date</th>
             <th>Edit/Del</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          {foodStore.foodList.map((item,i) => {
+          {itemStore.itemList.map((item,i) => {
             return(
                <div>
                 {item.name}
@@ -67,4 +71,4 @@ function AllFoods() {
     </div>
   )
 }
-export default observer(AllFoods)
+export default observer(AllItems)

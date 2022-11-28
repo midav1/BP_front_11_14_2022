@@ -1,9 +1,9 @@
 import { Outlet, Navigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import { TOKEN_NAME } from '../services/apiService';
+import { TOKEN_KEY } from '../services/apiService';
 import { checkIfAdmin } from './../services/rolesService'
 import HeaderAdmin from '../comps_admin/headerAdmin';
-const token = localStorage.getItem(TOKEN_NAME)
+const token = localStorage.getItem(TOKEN_KEY)
 
 const AdminRoutes = () => {  
     const[loading,setLoading]=useState(true);

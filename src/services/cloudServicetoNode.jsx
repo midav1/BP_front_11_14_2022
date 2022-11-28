@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Alert from './alert';
-import { API_URL, TOKEN_NAME } from './apiService';
+import { API_URL, TOKEN_KEY } from './apiService';
 
 export default function Upload(props) {
     const [fileInputState, setFileInputState] = useState('');
@@ -44,7 +44,7 @@ export default function Upload(props) {
                 body: JSON.stringify({ data: base64EncodedImage ,preset:props.preset}),
                 headers: {
                      'Content-Type': 'application/json' ,
-                     'x-api-key': localStorage[TOKEN_NAME]}
+                     'x-api-key': localStorage[TOKEN_KEY]}
             });
             setFileInputState('');
             setPreviewSource('');

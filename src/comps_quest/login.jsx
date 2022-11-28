@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { doApiMethod, API_URL, TOKEN_NAME, ROLE } from '../services/apiService'
+import { doApiMethod, API_URL, TOKEN_KEY, ROLE } from '../services/apiService'
 
 export default function Login() {
 	const {
@@ -25,7 +25,7 @@ export default function Login() {
 			const { data } = await doApiMethod(url, 'POST', bodyData)
 			// לשמור את הטוקן
       console.log('data', data)
-			localStorage.setItem(TOKEN_NAME, data.token)
+			localStorage.setItem(TOKEN_KEY, data.token)
 			localStorage.setItem(ROLE, data.userrole)
 			// לשגר לעמוד של רשימת המשתמשים
       if(data.userrole === 'admin') {
@@ -34,7 +34,7 @@ export default function Login() {
         nav('/user')
       }
 			console.log(data)
-			alert(data.userName + ' Welcome to WeFoods!')
+			alert(data.username + ' Welcome to WeItems!')
 		} catch (err) {
 			console.log(err.response)
 			alert('User or password worng, or service down')

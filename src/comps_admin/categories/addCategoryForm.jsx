@@ -20,7 +20,7 @@ export default function AddCategoryForm() {
 
       let resp = await doApiMethod(url,"POST",bodyFormData)
       if(resp.data._id){
-        alert("Food added succefuly");
+        alert("Item added succefuly");
         nav("/admin/categories")
       }
       else{

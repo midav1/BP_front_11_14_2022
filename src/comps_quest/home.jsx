@@ -1,7 +1,7 @@
 
 import useItems from 'antd/lib/menu/hooks/useItems'
 import React, { useState } from 'react'
-import FoodsList from '../comps_admin/foods/foodsList'
+import ItemsList from '../comps_admin/items/itemsList'
 import SearchItems from '../general_comps/searchItems'
 import { API_URL, doApiGet } from '../services/apiService'
 import Cloudinary from '../services/cloudServiceYarin'
@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div>
       <Header/>
-      <FoodsList/>
+      <ItemsList/>
     </div>
   )
 }

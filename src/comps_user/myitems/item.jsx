@@ -1,5 +1,5 @@
 import React from 'react'
-import { API_URL, doApiMethod } from '../../services/apiService';
+import { Link } from 'react-router-dom';
 import CheckUserComp from '../checkUserComp';
 
 export default function Item(props) {
@@ -17,6 +17,7 @@ export default function Item(props) {
       <td>{item.location}</td>
       <td>{item.category_url}</td>
       <td>{item.price}</td>
+      <td> <Link className='btn btn-info me-2' to={"/user/myitem/"+item._id} >Edit</Link></td>
     </tr>
    
   )

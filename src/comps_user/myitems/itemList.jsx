@@ -12,7 +12,7 @@ export default function ItemList() {
   },[])
 
   const doApi = async() => {
-    let url = API_URL+"/foods/myitems";
+    let url = API_URL+"/items/myitems";
     try{
       let resp = await doApiGet(url);
       console.log(resp.data);
@@ -42,6 +42,7 @@ export default function ItemList() {
             <th>Location</th>
             <th>Category_url</th>
             <th>Price</th>
+            <th>Edit my Item</th>
           </tr>
         </thead>
         <tbody>

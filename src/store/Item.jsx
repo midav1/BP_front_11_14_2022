@@ -1,18 +1,19 @@
 import { makeAutoObservable } from "mobx";
 import { API_URL, doApiGet } from "../services/apiService"
-class Food {
+class Item {
     constructor()
     {
         makeAutoObservable(this)
     }
-    foodList = []
-    getFoodList=async ()=>
+    itemList = []
+    getItemList=async ()=>
     {
-        let url = API_URL + "/foods/?page=1";
+        let url = API_URL + "/items/?page=1";
         try {
             let resp = await doApiGet(url);
             console.log(resp.data);
-            this.foodList=resp.data;
+            console.log(this.itemList)
+            this.itemList=resp.data;
           }
           catch (err) {
             console.log(err);
@@ -20,5 +21,5 @@ class Food {
           }
     }
 }
-const foodStore=new Food()
-export default foodStore;
+const itemStore=new Item()
+export default itemStore;
