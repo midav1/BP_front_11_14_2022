@@ -18,6 +18,7 @@ import AdminRoutes from './routes/admin_routes';
 import UserRoutes from './routes/user_routes';
 import AllItems from './comps_admin/items/allItems';
 import Upload from './services/cloudServicetoNode';
+import EditItem from './comps_user/myitems/ediItemForm';
 function App() {
   return (   
     <BrowserRouter>
@@ -38,6 +39,7 @@ function App() {
              <Route path='myinfo/edit' element={<MyInfoEdit/>}/>
               <Route path='myitems' element={<ItemList/>}/>
              <Route path='myitems/additem' element={<AddItemForm/>}/>
+             <Route path="myitem/:id" element={<EditItem/>} />
            <Route path='upload' element={<Upload/>}/>
        </Route>
          {/* ADMIN ROUTES */} 

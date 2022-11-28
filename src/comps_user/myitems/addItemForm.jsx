@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { API_URL, doApiMethod } from "../../services/apiService";
@@ -6,7 +6,9 @@ import CheckUserComp from "../checkUserComp";
 import HeaderUser from "../headerUser";
 import categoryStore from "../../store/categoryStore";
 import { observer } from "mobx-react";
+import MySelect from "../../UI/select/MySelect";
 function AddItemForm() {
+  const [category, setCategory] = useState("");
   useEffect(() => {
     categoryStore.getCategories();
   }, []);
@@ -39,8 +41,8 @@ function AddItemForm() {
   return (
     <div className="container">
       <CheckUserComp />
-      <h2>Add new item</h2>
-      <div>{categoryStore.categories}</div>
+      <h2>Add new item</h2> 
+      <div></div>
       <form onSubmit={handleSubmit(onSubForm)} className="col-md-6 p-3 shadow">
         <label>Name:</label>
         <input
@@ -97,8 +99,14 @@ function AddItemForm() {
           <div className="text-danger">Enter valid location (min 2 chars) </div>
         )}
         <label>Category:</label>
-        <input
-          {...register("category_url", { required: true, minLength: 2 })}
+        <MySelect
+        value={category}
+          defaultValue="Categories" 
+          onChange={(value) => setCategory(value)}
+          options={categoryStore.categories}
+        />
+        <input value={category} 
+          {...register("category_url",{ value: category })}
           type="text"
           className="form-control"
         />

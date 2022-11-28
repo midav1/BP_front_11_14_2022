@@ -9,7 +9,7 @@ class Category {
     let url = API_URL + "/categories/";
     try {
       let resp = await doApiGet(url);
-      this.categories =  (resp.data.map(({name})=> name));
+      this.categories =  resp.data.map(({url_name,name})=> ({url_name,name}));
     } catch (err) {
       console.log(err);
       alert("there problem ,try again later");
