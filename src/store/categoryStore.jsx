@@ -1,22 +1,22 @@
 import { makeAutoObservable } from "mobx";
 import { API_URL, doApiGet} from "../services/apiService";
-class User {
+class Category {
   constructor() {
     makeAutoObservable(this);
   }
-  user = { role: "", active: false };
-  getPermissions = async () => {
-    let url = API_URL + "/users/checkToken";
+  categories = [];
+  getCategories = async () => {
+    let url = API_URL + "/categories/";
     try {
       let resp = await doApiGet(url);
-      console.log(resp.data);
-      this.user.role = resp.data.role;
-      this.user.active = resp.data.active;
+    
+      this.categories = resp.data.map(({name})=> name);
+        console.log(this.categories);
     } catch (err) {
       console.log(err);
       alert("there problem ,try again later");
     }
   };
 }
-const userStore = new User();
-export default userStore;
+const categoryStore = new Category();
+export default categoryStore;

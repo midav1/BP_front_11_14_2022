@@ -4,13 +4,16 @@ import {  useNavigate, useSearchParams } from 'react-router-dom';
 import PageNav from '../../general_comps/pageNav';
 import { API_URL, doApiGet } from '../../services/apiService';
 import itemStore from '../../store/Item';
+import userStore from '../../store/userStore';
 import CheckAdminComp from '../checkAdminComp'
-import ItemItem from './itemItem';
+
 
 function AllItems() {
     useEffect(()=>
     {
+     userStore.getPermissions();
         itemStore.getItemList();
+        console.log(userStore.user.role)
     },[])
 //   const nav = useNavigate()
 //   const [ar, setAr] = useState([]);
@@ -43,6 +46,7 @@ function AllItems() {
       <table className='table table-striped table-hover'>
         <thead>
           <tr>
+          <div>users</div>
             <th>#</th>
             <th>Name</th>
             <th>Location</th>
@@ -52,6 +56,7 @@ function AllItems() {
             <th>Active</th>
             <th>Date</th>
             <th>Edit/Del</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

@@ -6,18 +6,18 @@ import CategoryItem from './categoryItem';
 
 
 export default function CategoriesList() {
-
   const [ar, setAr] = useState([]);
-
   useEffect(() => {
     doApi();
   }, [])
 
   const doApi = async () => {
     let url = API_URL + "/categories/";
+    
     try {
       let resp = await doApiGet(url);
       console.log(resp.data);
+      console.log(resp.data.map(({name})=> name));
       setAr(resp.data);
     }
     catch (err) {

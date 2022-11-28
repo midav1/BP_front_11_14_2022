@@ -4,12 +4,12 @@ import {useForm} from "react-hook-form"
 import { API_URL, doApiMethod } from '../../services/apiService';
 import CheckUserComp from '../checkUserComp';
 import HeaderUser from '../headerUser';
-
+import categoryStore from '../../store/categoryStore';
 export default function AddItemForm() {
    
   const{register , handleSubmit ,  formState: { errors } } = useForm();
   const nav = useNavigate();
- 
+  console.log(categoryStore.getCategories().name);
   const onSubForm = (bodyFormData) => {
     // data -> מכיל את כל המאפיינים שלה השמות של האינפוטים עם הערך שלהם
     console.log(bodyFormData)
