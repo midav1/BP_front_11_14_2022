@@ -167,10 +167,8 @@ function MyInfoEdit() {
             <Link className="btn btn-danger" to="/user/myinfo">
               Back
             </Link>
-            
-        
         </form><Upload preset={"users_preset"}/> 
-        <Cloudinary/> </div>
+        </div>
       ) : (
         <h2>Loading...</h2>
       )}

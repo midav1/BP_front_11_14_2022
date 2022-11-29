@@ -42,6 +42,7 @@ export default function ItemList() {
             <th>Location</th>
             <th>Category_url</th>
             <th>Price</th>
+            <th>Nickname</th>
             <th>Edit my Item</th>
           </tr>
         </thead>

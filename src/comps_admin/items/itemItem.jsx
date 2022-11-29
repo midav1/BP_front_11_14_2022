@@ -29,7 +29,9 @@ export default function ItemItem(props) {
       <td>{props.index + 1}</td>
       <td> {item.name}</td>
       <td> {item.info}</td>
-      <td>{item.img_url } </td>
+      <td>{item.img_url } { <div className="e-avatar-xlarge">
+             <img src={item.img_url} style={{width:"100px"}} alt="item photo" ></img>
+            </div>} </td>
       <td>{item.location}</td>
       <td>{item.categories_url}</td>
       <td>{item.price} nis</td>

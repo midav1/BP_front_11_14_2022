@@ -41,7 +41,7 @@ export default function Upload(props) {
         try {
             await fetch(API_URL+'/cloud/api/upload', {
                 method: 'POST',
-                body: JSON.stringify({ data: base64EncodedImage ,preset:props.preset}),
+                body: JSON.stringify({ data: base64EncodedImage ,preset:props.preset,_id:props._id}),
                 headers: {
                      'Content-Type': 'application/json' ,
                      'x-api-key': localStorage[TOKEN_KEY]}
@@ -68,7 +68,7 @@ export default function Upload(props) {
                     value={fileInputState}
                     className="form-input"
                 />
-                <button className="btn" type="submit">
+                <button className="btn"  type="submit">
                     Submit
                 </button>
             </form>
