@@ -63,6 +63,7 @@ export default function EditItem() {
   return (
 
     <div className='container'>
+      { <Upload preset={"items_preset"} _id={info._id}/>}
       <h2>Edit item</h2>
       {info.name ? <form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow'>
         <label>Name:</label>
@@ -101,9 +102,10 @@ export default function EditItem() {
         {errors.nickname && <div className='text-danger'>Enter valid nickname (min 2 chars) </div>}
         <div className='mt-3'>
            <button className='btn btn-success me-5'>Update</button>
-          <Link className='btn btn-danger' to="/user/myitems">Back</Link>
-        </div>
-      </form> : <h2>Loading...</h2> }
+          <Link className='btn btn-danger' to="/user/myitems">Back</Link></div>
+      </form> 
+    : <h2>Loading...</h2> }
     </div>
+    
   )
 }
