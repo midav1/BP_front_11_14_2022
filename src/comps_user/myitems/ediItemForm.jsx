@@ -3,12 +3,14 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import { API_URL, doApiGet, doApiMethod } from '../../services/apiService';
 import Upload from '../../services/cloudServicetoNode';
+import MyModal from '../../UI/myModal/myModal';
 
 export default function EditItem() {
   const [info, setInfo] = useState({})
   const { register, handleSubmit, formState: { errors } } = useForm();
   const nav = useNavigate();
   const params = useParams();
+  const [modal,setModal]=useState(false)
 
   // בקשה בהתחלה שתשלוף את כל המידע של הטופס
   useEffect(() => {
@@ -76,9 +78,12 @@ export default function EditItem() {
         <input defaultValue={info.img_url} {...register("img_url", { required: true, minLength: 2 })}type="text" className='form-control' />
         {errors.img_url && <div className='text-danger'>Enter valid url   (min 2 chars) </div>}
         { <div className="e-avatar-xlarge">
-             <img src={info.img_url} style={{width:"200px"}} alt="item photo" ></img>
+             <img src={info.img_url}onClick={()=>setModal(true)} style={{width:"200px"}} alt="item photo" ></img>
             </div>}
-            <Upload preset={"items_preset"} _id={info._id} />
+            {/* {<button onClick={()=>setModal(true)}></button>} */}
+           { <MyModal visible={modal} setVisible={setModal}> 
+           <Upload preset={"items_preset"} _id={info._id}/>
+           </MyModal>}
         <label>Name:</label>
         <input defaultValue={info.name} {...register("name", { required: true, minLength: 2 })} type="text" className='form-control' />
         {errors.name && <div className='text-danger'>Enter valid name (min 2 chars) </div>}

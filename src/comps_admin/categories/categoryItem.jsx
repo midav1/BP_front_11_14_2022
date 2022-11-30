@@ -11,7 +11,7 @@ export default function CategoryItem(props) {
         let url = API_URL+"/categories/"+item._id;
         let resp = await doApiMethod(url,"DELETE");
         console.log(resp.data);
-        if(resp.data.deletedCount == 1){
+        if(resp.data.deletedCount === 1){
           props.doApi();
         }
       }
