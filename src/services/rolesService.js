@@ -6,11 +6,11 @@ export async function checkIfAdmin() {
   
   let resp = await doApiGet(url);
 
-  return resp.data.role === 'admin'
+  return resp.data.role == 'admin'
 }
 export async function checkIfUser() {
   
   let resp = await doApiGet(url);
 
-  return resp.data.role === 'user'
+  return resp.data.role == 'user'
 }

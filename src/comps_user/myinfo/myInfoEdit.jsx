@@ -69,6 +69,7 @@ function MyInfoEdit() {
   return (
     <div className="container">
       <CheckUserComp />
+      <Upload preset={"users_preset"}/> 
       <h2>Edit My info</h2>
       {info.name ? (<div>
         <form
@@ -167,10 +168,8 @@ function MyInfoEdit() {
             <Link className="btn btn-danger" to="/user/myinfo">
               Back
             </Link>
-            
-        
-        </form><Upload preset={"users_preset"}/> 
-        <Cloudinary/> </div>
+        </form>
+        </div>
       ) : (
         <h2>Loading...</h2>
       )}

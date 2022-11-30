@@ -13,10 +13,13 @@ export default function Item(props) {
       <td>{item.name}</td>
       <td>{item.info}</td>
       <td>{item.hand}</td>
-      <td>{item.img_url}</td>
+      <td> { <div className="e-avatar-xlarge">
+             <img src={item.img_url} style={{width:"100px"}} alt="item photo" ></img>
+            </div>}</td>
       <td>{item.location}</td>
       <td>{item.category_url}</td>
       <td>{item.price}</td>
+      <td>{item.nickname}</td>
       <td> <Link className='btn btn-info me-2' to={"/user/myitem/"+item._id} >Edit</Link></td>
     </tr>
    

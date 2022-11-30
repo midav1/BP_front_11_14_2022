@@ -16,7 +16,6 @@ export default function PageNav(props) {
     let totalPages = Math.ceil(resp.data.count/props.perPage)
     // מגדיר את מספר העמודים
     setPages(totalPages);
-
     console.log(resp.data); 
   }
 

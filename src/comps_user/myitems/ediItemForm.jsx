@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import { API_URL, doApiGet, doApiMethod } from '../../services/apiService';
+import Upload from '../../services/cloudServicetoNode';
+import MyModal from '../../UI/myModal/myModal';
 
 export default function EditItem() {
   const [info, setInfo] = useState({})
   const { register, handleSubmit, formState: { errors } } = useForm();
   const nav = useNavigate();
   const params = useParams();
+  const [modal,setModal]=useState(false)
 
   // בקשה בהתחלה שתשלוף את כל המידע של הטופס
   useEffect(() => {
@@ -15,7 +18,7 @@ export default function EditItem() {
   }, [])
 
   const doApiInit = async () => {
-    let url = API_URL + "/items/byId" + params["id"];
+    let url = API_URL + "/items/byId/" + params["id"];
     console.log(params["id"])
     try {
       let resp = await doApiGet(url);
@@ -60,6 +63,7 @@ export default function EditItem() {
   return (
 
     <div className='container'>
+      { <Upload preset={"items_preset"} _id={info._id}/>}
       <h2>Edit item</h2>
       {info.name ? <form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow'>
         <label>Name:</label>
@@ -71,9 +75,16 @@ export default function EditItem() {
         <label>Hand:</label>
         <input defaultValue={info.hand} {...register("hand", { required: true, minLength: 2 })} type="text" className='form-control' />
         {errors.hand && <div className='text-danger'>Enter valid hand (min 2 chars) </div>}
+        <label>Image:</label>
         <input defaultValue={info.img_url} {...register("img_url", { required: true, minLength: 2 })}type="text" className='form-control' />
         {errors.img_url && <div className='text-danger'>Enter valid url   (min 2 chars) </div>}
-        <img src={info.img_url} alt="img" height="100"/>
+        { <div className="e-avatar-xlarge">
+             <img src={info.img_url}onClick={()=>setModal(true)} style={{width:"200px"}} alt="item photo" ></img>
+            </div>}
+            {/* {<button onClick={()=>setModal(true)}></button>} */}
+           { <MyModal visible={modal} setVisible={setModal}> 
+           <Upload preset={"items_preset"} _id={info._id}/>
+           </MyModal>}
         <label>Name:</label>
         <input defaultValue={info.name} {...register("name", { required: true, minLength: 2 })} type="text" className='form-control' />
         {errors.name && <div className='text-danger'>Enter valid name (min 2 chars) </div>}
@@ -86,11 +97,15 @@ export default function EditItem() {
         <label>Price:</label>
         <input defaultValue={info.price} {...register("price", { required: true, minLength: 2 })} type="text" className='form-control' />
         {errors.price && <div className='text-danger'>Enter valid price (min 2 chars) </div>}
+        <label>Nickname:</label>
+        <input defaultValue={info.nickname} {...register("nickname", { required: true, minLength: 2 })} type="text" className='form-control' />
+        {errors.nickname && <div className='text-danger'>Enter valid nickname (min 2 chars) </div>}
         <div className='mt-3'>
-          <button className='btn btn-success me-5'>Update</button>
-          <Link className='btn btn-danger' to="/user/myitems">Back</Link>
-        </div>
-      </form> : <h2>Loading...</h2> }
+           <button className='btn btn-success me-5'>Update</button>
+          <Link className='btn btn-danger' to="/user/myitems">Back</Link></div>
+      </form> 
+    : <h2>Loading...</h2> }
     </div>
+    
   )
 }

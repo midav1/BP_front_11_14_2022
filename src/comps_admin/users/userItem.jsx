@@ -7,7 +7,7 @@ export default function UserItem(props) {
   // משנה תפקיד של משתמש
   const onRoleClick = async() => {
     let bodyData;
-    if(item.role == "user"){
+    if(item.role === "user"){
       bodyData = {role:"admin"}
     }
     else{

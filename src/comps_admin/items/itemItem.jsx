@@ -11,7 +11,7 @@ export default function ItemItem(props) {
         let url = API_URL+"/items/"+item._id;
         let resp = await doApiMethod(url,"DELETE");
         console.log(resp.data);
-        if(resp.data.deletedCount == 1){
+        if(resp.data.deletedCount === 1){
           props.doApi();
         }
       }
@@ -29,7 +29,9 @@ export default function ItemItem(props) {
       <td>{props.index + 1}</td>
       <td> {item.name}</td>
       <td> {item.info}</td>
-      <td>{item.img_url } </td>
+      <td>{item.img_url } { <div className="e-avatar-xlarge">
+             <img src={item.img_url} style={{width:"100px"}} alt="item photo" ></img>
+            </div>} </td>
       <td>{item.location}</td>
       <td>{item.categories_url}</td>
       <td>{item.price} nis</td>

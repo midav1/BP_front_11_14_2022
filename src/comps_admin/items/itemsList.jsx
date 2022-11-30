@@ -15,8 +15,6 @@ export default function ItemsList() {
   useEffect(() => {
     doApi();
   }, [querys.get("page"),filter,limit]);
-  
-
   const doApi = async () => {
     //?page= איסוף
     let page = querys.get("page") || 1;
@@ -70,7 +68,7 @@ export default function ItemsList() {
             return (
               <ItemItem
                 key={item._id}
-                index={(querys.get("page") - 1) * limit + i}
+                index={((querys.get("page")||1) -1) * limit + i}
                 item={item}
                 doApi={doApi}
               />
